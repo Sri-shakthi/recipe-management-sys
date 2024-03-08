@@ -1,0 +1,71 @@
+### Create User
+POST http://localhost:1344
+Content-Type: application/json
+
+{
+    "username": "user1000",
+    "password": "password1000",
+    "email": "email@1000"
+}
+
+### Login
+POST http://localhost:1344/login
+Content-Type: application/json
+
+{
+    "username": "user100",
+    "password": "password100"
+}
+
+
+### Get Recipes by Title Search
+GET http://localhost:1344/recipes/?search_q=Pancakes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
+
+### Get Recipes by Category (e.g., Breakfast)
+GET http://localhost:1344/recipes/?category=Lunch
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
+### Get Recipes with Pagination
+GET http://localhost:1344/recipes/?offset=0&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
+### Get All Recipes
+GET http://localhost:1344/recipes/?search_q=Pancakes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
+### Add a New Recipe
+POST http://localhost:1344/recipes/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
+{
+  "title": "Spaghetti Bolognese",
+  "description": "A hearty pasta dish with rich meat sauce, served over al dente spaghetti noodles and topped with Parmesan cheese.",
+  "ingredients": "Ground beef, onion, garlic, carrots, celery, canned tomatoes, tomato paste, red wine, beef broth, Italian herbs, spaghetti noodles, Parmesan cheese",
+  "instructions": "1. Sauté chopped onion, garlic, carrots, and celery until softened. 2. Add ground beef and cook until browned. 3. Stir in canned tomatoes, tomato paste, red wine, beef broth, and Italian herbs. 4. Simmer until the sauce thickens. 5. Cook spaghetti noodles according to package instructions. 6. Serve the meat sauce over the cooked spaghetti noodles and sprinkle with grated Parmesan cheese.",
+  "category": "Dinner",
+  "nutrients": "Carbohydrates: 40g, Protein: 25g, Fat: 12g, Fiber: 8g"
+}
+
+
+
+### Update Recipe (Replace {recipe_id} with actual recipe ID)
+PUT http://localhost:1344/recipes/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
+{
+  "title": "Updated Dosa Recipe",
+  "description": "South Indian Crepe made from fermented rice and lentil batter (Updated)",
+  "ingredients": "1 cup rice, 1/2 cup urad dal, salt, water (Updated)",
+  "instructions": "1. Soak rice and urad dal separately for 6 hours. 2. Grind them to a smooth batter. 3. Ferment the batter overnight. 4. Heat a skillet and pour a ladle of batter. 5. Spread it in a circular motion. 6. Cook until golden brown. 7. Serve hot with chutney and sambar. (Updated)",
+  "category": "Breakfast",
+  "nutrients": "Carbohydrates: 20g, Protein: 5g, Fat: 2g, Fiber: 3g (Updated)"
+}
+
+### Delete Recipe (Replace {recipe_id} with actual recipe ID)
+DELETE http://localhost:1344/recipes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMDAiLCJpYXQiOjE3MDk3OTQ1Nzl9.q-yL6RxklbA8lf6iWK49M9gAR8IS2hVFRR1WNPc7Th4
+
